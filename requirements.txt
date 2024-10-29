@@ -1,0 +1,8 @@
+django>=5
+django-crispy-forms
+crispy-bootstrap3
+django-extensions
+django-stronghold
+gunicorn
+Pillow
+django-extensions

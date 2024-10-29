@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static crispy_forms_tags %}
+{% block content_wrapper %}
+    <h1>Activar nuevo perfil</h1>
+    <form method="post" class="post-form">
+        {% csrf_token %}
+        {% crispy form %}
+    </form>
+{% endblock %}

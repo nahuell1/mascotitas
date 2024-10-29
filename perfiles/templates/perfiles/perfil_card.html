@@ -1,0 +1,10 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title font-weight-bold">{{ perfil.nombre }}</h5>
+        <p class="card-text">
+            <strong>Mi humano es:</strong> {{ perfil.humano|default:'No tengo humano :(' }}
+        </p>
+        {{ perfil.codigo_de_activacion }}
+        <a href="{% url 'perfiles:perfil-detail' perfil.pk %}" class="btn btn-primary">Ver detalle</a>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content_wrapper %}
+<div class="container">
+    <h2>Perfil de Usuario</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <p><strong>Username:</strong> {{ object.username }}</p>
+            <p><strong>Email:</strong> {{ object.email }}</p>
+            <p><strong>Ubicación:</strong> {{ object.ubicacion }}</p>
+            <p><strong>Número de teléfono:</strong> {{ object.numero_de_telefono }}</p>
+            <p><strong>Fecha de nacimiento:</strong> {{ object.fecha_de_nacimiento|date:"d/m/Y" }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

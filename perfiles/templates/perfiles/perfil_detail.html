@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content_wrapper %}
+  <div class="container mt-4">
+    {% comment %} {% if object.profile_picture %}
+      <img src="{{ object.profile_picture.imagen.url }}" class="img-fluid" alt="Profile picture" />
+    {% endif %} {% endcomment %}
+    {% if object.imagenes.all %}
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for imagen in object.imagenes.all %}
+            <div class="carousel-item {% if forloop.first %}{% endif %}">
+              <img src="{{ imagen.imagen.url }}" class="d-block w-100" alt="{{ imagen.descripcion }}" />
+            </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    {% else %}
+      <p>No hay imágenes para mostrar.</p>
+    {% endif %}
+
+    <h1>{{ object.nombre }}</h1>
+    <p>Número de contacto: {{ object.numero_de_telefono }}</p>
+    <p>Fecha de nacimiento: {{ object.fecha_de_nacimiento|date:'Y-m-d' }}</p>
+    <p>Ubicación: {{ object.ubicacion }}</p>
+    <p>Biografía: {{ object.biografia }}</p>
+    <p>Humano: {{ object.humano }}</p>
+
+    <div class="d-flex justify-content-end">
+      <a href="{% url 'perfiles:perfil-update' object.pk %}" class="btn btn-success mr-2">Editar perfil</a>
+      <a href="{% url 'perfiles:imagen-create' object.pk %}" class="btn btn-info">Cargar imagen</a>
+    </div>
+
+    <div class="fb-comments" data-href="https://prueba-tp-django.herokuapp.com/" data-width="" data-numposts="5"></div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v12.0&appId=408165317356447&autoLogAppEvents=1" nonce="ujJNYwjz"></script>
+{% endblock %}

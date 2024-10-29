@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content_wrapper %}
+<div class="container mt-4">
+    <header class="jumbotron my-4">
+        <h1 class="display-3">¡Bienvenido a Mascotitas!</h1>
+        <p class="lead">Un lugar donde la adopción responsable y el amor por los animales se encuentran.</p>
+        <a href="{% url 'perfiles:perfil-list' %}" class="btn btn-primary btn-lg">Explora las mascotas disponibles para adopción</a>
+    </header>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img class="card-img-top img-fluid" src="{% static 'img/perro.jpg' %}" alt="Adopción responsable">
+                <div class="card-body">
+                    <h4 class="card-title">Adopción Responsable</h4>
+                    <p class="card-text">Descubre cómo adoptar una mascota y qué considerar para asegurarte de que estás listo.</p>
+                    <a href="#" class="btn btn-outline-primary">Aprende más</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img class="card-img-top img-fluid" src="{% static 'img/transito.jpg' %}" alt="Seguimiento de animales">
+                <div class="card-body">
+                    <h4 class="card-title">Seguimiento de Animales</h4>
+                    <p class="card-text">Entérate de cómo llevamos el seguimiento de los animales en tránsito y cómo puedes contribuir.</p>
+                    <a href="#" class="btn btn-outline-primary">Descubre cómo</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img class="card-img-top img-fluid" src="{% static 'img/perfil.jpg' %}" alt="Perfil de mascotas">
+                <div class="card-body">
+                    <h4 class="card-title">Perfiles de Mascotas</h4>
+                    <p class="card-text">Crea un perfil para tu mascota, comparte fotos y conéctate con otros amantes de los animales.</p>
+                    <a href="{% url 'perfiles:perfil-list' %}" class="btn btn-outline-primary">Empieza aquí</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content_wrapper %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-end mb-4">
+        <a href="{% url 'perfiles:perfil-create' %}" class="btn btn-success">Agregar perfil</a>
+    </div>
+    {% for perfil in perfiles %}
+        {% include "perfiles/perfil_card.html" %}
+    {% empty %}
+        <p class="text-center">No hay perfiles disponibles.</p>
+    {% endfor %}
+</div>
+{% endblock %}
